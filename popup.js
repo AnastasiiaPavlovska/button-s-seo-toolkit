@@ -9,26 +9,25 @@ document.addEventListener('DOMContentLoaded', function() {
     var checkButton = document.getElementById('check');
     checkButton.addEventListener('click', function() {
         alert("Hey your button is working!");
+
+        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { method: "changePage" }, function(response) {
+
+                if (response == undefined) {
+                    alert("Resp: " + response);
+                    return;
+                }
+
+                console.log(typeof response);
+
+                if (response.method == "changePage") {
+                    alert(response.text);
+                }
+            });
+        });
     }, false);
 }, false);
 
-// document.addEventListener("DOMContentLoaded", async() => {
-//     const activeTab = await getActiveTabURL();
-//     const queryParameters = activeTab.url.split("?")[1];
-//     const urlParameters = new URLSearchParams(queryParameters);
-
-//     var checkButton = document.getElementById('check');
-//     checkButton.addEventListener('click', function() {
-//         alert("Hey your button is working!");
-//     }, false);
-
-//     HTMLElement: button = document.getElementById("check")[0];
-//     if (activeTab.url.includes(ahrefsMatchingTermsUrl)) {
-//         button.name = 'Active';
-//     } else {
-//         button.name = 'Inactive';
-//     }
-// });
 
 async function onAhrefsCopyKwClicked() {
     console.log("Clicked");

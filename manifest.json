@@ -1,28 +1,14 @@
 {
+    "manifest_version": 3,
     "name": "Button's SEO Toolbox",
     "description": "Set of experimental tools to speedup SEO daily routine",
     "version": "0.1",
     "permissions": [
         "storage",
-        "tabs"
+        "tabs",
+        "activeTab"
     ],
-    "host_permissions": ["https://*.youtube.com/*"],
-    "background": {
-        "service_worker": "background.js"
-    },
-    "content_scripts": [{
-        "matches": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms/*"],
-        "js": ["contentScript.js"]
-    }],
-    "web_accessible_resources": [{
-        "resources": [
-            "assets/bookmark.png",
-            "assets/play.png",
-            "assets/delete.png",
-            "assets/save.png"
-        ],
-        "matches": ["https://*.youtube.com/*"]
-    }],
+    "host_permissions": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms*"],
     "action": {
         "default_icon": {
             "16": "assets/ext-icon.png",
@@ -32,7 +18,6 @@
         "default_title": "Set of experimental tools to speedup SEO daily routine",
         "default_popup": "popup.html"
     },
-    "manifest_version": 3,
     "commands": {
         "_execute_action": {
             "suggested_key": {
@@ -40,5 +25,17 @@
                 "mac": "Command+B"
             }
         }
-    }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms/*"],
+        "js": ["contentScript.js"]
+    }, {
+        "matches": [
+            "<all_urls>"
+        ],
+        "js": ["annoyer.js"]
+    }]
 }
