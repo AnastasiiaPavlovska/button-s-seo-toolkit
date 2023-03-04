@@ -1,0 +1,13 @@
+export async function getActiveTabURL() {
+    const tabs = await chrome.tabs.query({
+        currentWindow: true,
+        active: true
+    });
+
+    return tabs[0];
+}
+
+
+export async function addToClipboard(value) {
+    navigator.clipboard.writeText(value);
+}
