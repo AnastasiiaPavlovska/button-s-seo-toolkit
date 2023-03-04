@@ -9,5 +9,15 @@ export async function getActiveTabURL() {
 
 
 export async function addToClipboard(value) {
-    navigator.clipboard.writeText(value);
+    clipboard.writeText(value).then(function(x) {
+        alert("Link copied to clipboard: " + value);
+    });
+}
+
+export async function getFromClipgoard() {
+    const text = await window.navigator.clipboard.readText();
+
+    alert("Got from clipboard: " + text);
+
+    return text;
 }

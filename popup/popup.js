@@ -1,33 +1,24 @@
-import { getActiveTabURL, addToClipboard } from "./utils.js";
+import { getActiveTabURL, addToClipboard, getFromClipgoard } from "../utils.js";
+import { queryKeywordsInNewTab } from "../ahrefsQuery.js";
 
 const ahrefsMatchingTermsUrl = "https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms";
 
 document.addEventListener('DOMContentLoaded', function() {
-    var copyButton = document.getElementById('ahrefs_copy_kw');
+    const copyButton = document.getElementById('ahrefs_copy_kw');
     copyButton.addEventListener('click', onAhrefsCopyKwClicked, false);
 
-    var checkButton = document.getElementById('check');
+    // Run query for new keywords
+    const checkButton = document.getElementById('ahrefs_run_query');
     checkButton.addEventListener('click', function() {
-        alert("Hey your button is working!");
-
-        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, { method: "changePage" }, function(response) {
-
-                if (response == undefined) {
-                    alert("Resp: " + response);
-                    return;
-                }
-
-                console.log(typeof response);
-
-                if (response.method == "changePage") {
-                    alert(response.text);
-                }
-            });
-        });
+        let keywords;
+        window.navigator.clipboard.readText().then(text => {
+            alert("Pasted text: " + text);
+            keywords = text;
+        })
+        const exclusionString = "dog, pet, children";
+        queryKeywordsInNewTab(keywords, exclusionString);
     }, false);
 }, false);
-
 
 async function onAhrefsCopyKwClicked() {
     console.log("Clicked");
