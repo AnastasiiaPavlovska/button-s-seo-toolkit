@@ -7,8 +7,7 @@
         "storage",
         "tabs",
         "activeTab",
-        "clipboard",
-        "clipboard-read"
+        "clipboardWrite"
     ],
     "host_permissions": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms*"],
     "commands": {
@@ -32,7 +31,8 @@
         "service_worker": "background.js"
     },
     "content_scripts": [{
-        "matches": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms/*"],
-        "js": ["contentScript.js"]
+        "js": ["contentScript.js"],
+        "matches": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms*"],
+        "type": "module"
     }]
 }
