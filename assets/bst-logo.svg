@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="bst-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.8955486"
+     inkscape:cx="348.56807"
+     inkscape:cy="291.83035"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#cb0000;fill-opacity:1;stroke:#ff7500;stroke-width:0.536;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path31"
+       cx="98.049957"
+       cy="75.738785"
+       r="11.767308"
+       inkscape:export-filename="/home/button/Desktop/button's-seo-toolkit/assets/ext-icon.png"
+       inkscape:export-xdpi="135.06923"
+       inkscape:export-ydpi="135.06923" />
+    <g
+       id="g10249"
+       transform="matrix(2.7101261,0,0,1.8273985,-160.74098,-50.480678)"
+       inkscape:export-filename="/home/button/Desktop/button's-seo-toolkit/assets/ext-icon.png"
+       inkscape:export-xdpi="135.06923"
+       inkscape:export-ydpi="135.06923">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:18.6203px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.465511"
+         x="119.42555"
+         y="56.065216"
+         id="text3820"
+         transform="scale(0.77298976,1.2936782)"><tspan
+           sodipodi:role="line"
+           id="tspan3818"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Karumbi;-inkscape-font-specification:'Karumbi Italic';fill:#ffffff;fill-opacity:1;stroke-width:0.465511"
+           x="119.42555"
+           y="56.065216">B</tspan><tspan
+           sodipodi:role="line"
+           style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Karumbi;-inkscape-font-specification:'Karumbi Italic';fill:#ffffff;fill-opacity:1;stroke-width:0.465511"
+           x="119.42555"
+           y="82.346115"
+           id="tspan6726" /></text>
+      <text
+         xml:space="preserve"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.3937px;line-height:1.25;font-family:Karumbi;-inkscape-font-specification:'Karumbi Italic';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.484844"
+         x="120.57207"
+         y="64.854568"
+         id="text9502"
+         transform="scale(0.788688,1.2679285)"
+         inkscape:export-filename="/home/button/Desktop/button's-seo-toolkit/assets/ext-icon.png"
+         inkscape:export-xdpi="135.06923"
+         inkscape:export-ydpi="135.06923"><tspan
+           sodipodi:role="line"
+           id="tspan9500"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Karumbi;-inkscape-font-specification:'Karumbi Italic';fill:#ffffff;fill-opacity:1;stroke-width:0.484844"
+           x="120.57207"
+           y="64.854568" /></text>
+    </g>
+  </g>
+</svg>
