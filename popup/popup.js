@@ -29,7 +29,7 @@ async function onAhrefsCopyKwClicked() {
     const activeTab = await getActiveTabURL();
 
     if (!activeTab.url || !activeTab.url.includes(ahrefsMatchingTermsUrl)) {
-        navigator.clipboard.writeText("Url doesn't match the pattern: " + activeTab.url);
+        setStatus("This button doesn't work on this page.\nTry: " + ahrefsMatchingTermsUrl);
         console.log("Url doesn't match the pattern: " + activeTab.url);
         return;
     }
