@@ -8,17 +8,24 @@ export async function getActiveTabURL() {
 }
 
 
-export async function addToClipboard(value) {
+export async function copyToClipboard(value) {
     await navigator.clipboard.writeText(value);
 }
 
-export async function getFromClipgoard() {
-    const text = await window.navigator.clipboard.readText();
+export function pasteFromClipboard() {
+    const inputElement = document.createElement("input");
+    document.body.appendChild(inputElement);
 
-    alert("Got from clipboard: " + text);
-
-    return text;
+    inputElement.focus();
+    document.execCommand("paste");
+    const clipboardText = inputElement.value; //this is your clipboard data
+    document.body.removeChild(inputElement);
+    return clipboardText;
 }
+
+// export async function pasteFromClipboard() {
+//     return await navigator.clipboard.readText();
+// }
 
 export async function readClipboardFromDevTools() {
     return new Promise((resolve, reject) => {

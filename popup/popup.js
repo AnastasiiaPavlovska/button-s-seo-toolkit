@@ -1,4 +1,4 @@
-import { getActiveTabURL, addToClipboard, getFromClipgoard } from "../utils.js";
+import { getActiveTabURL, copyToClipboard, pasteFromClipboard } from "../utils.js";
 import { queryKeywordsInNewTab } from "../ahrefs-content/ahrefsQuery.js";
 
 const ahrefsMatchingTermsUrl = "https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms";
@@ -31,9 +31,8 @@ function queryButtonHandler() {
 }
 
 async function onAhrefsCopyKwClicked() {
-    console.log("Clicked");
+    console.log("On onAhrefsCopyKwClicked called");
     const activeTab = await getActiveTabURL();
-    console.log("activeTab: " + activeTab);
 
     if (!activeTab.url || !activeTab.url.includes(ahrefsMatchingTermsUrl)) {
         navigator.clipboard.writeText("Url doesn't match the pattern: " + activeTab.url);
@@ -47,14 +46,13 @@ async function onAhrefsCopyKwClicked() {
     setStatus("Copied " + response.length + " keywords");
     navigator.clipboard.writeText(response.value);
 
-    addToClipboard(response.value);
+    copyToClipboard(response.value);
 }
 
 // define a handler
 function doc_keyUp(e) {
     // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
     if (e.key === '1') {
-        // call your function to do the thing
         console.log("Copy selected ahrefs keywords called");
         setStatus("Copy selected ahrefs keywords called");
         onAhrefsCopyKwClicked();
