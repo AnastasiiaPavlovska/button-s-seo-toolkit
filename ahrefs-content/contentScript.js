@@ -1,4 +1,7 @@
 // import { parseShortNumber } from "./utils.js";
+copyButtonCSS = "outline: #000000; outline-style: solid; align: center;outline-width: 1px; width: 100%; font-size: 12px;color: #ffffff; background-color: #90000e; border-radius: 12px; border: 0; padding: 3px;";
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 function parseShortNumber(shortNumber) {
     const multipliers = {
@@ -63,4 +66,22 @@ function handleEvent(request, sender, sendResponse) {
     }
 }
 
+async function onCopyButtonClicked() {
+    const result = crawlForSelectedItems();
+    console.log("Copying: " + result.join("\n"));
+    await navigator.clipboard.writeText(result.join("\n"));
+}
+
+function addCopyButton(buttonCSS) {
+    const copyButton = document.createElement('button');
+    copyButton.innerText = 'Copy selected Keywords + Difficulty + Volume';
+    copyButton.style.cssText = buttonCSS;
+
+    toolbar = document.getElementsByClassName("css-1h4yvvf-block css-9uzb9x-blockMain css-f201k2-blockWithGrouping")[0];
+    document.body.appendChild(copyButton);
+
+    copyButton.addEventListener('click', onCopyButtonClicked, false);
+}
+// Add button 
+addCopyButton(copyButtonCSS);
 chrome.runtime.onMessage.addListener(handleEvent);
