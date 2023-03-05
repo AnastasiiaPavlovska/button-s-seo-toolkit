@@ -1,5 +1,5 @@
 import { getActiveTabURL, addToClipboard, getFromClipgoard } from "../utils.js";
-import { queryKeywordsInNewTab } from "../ahrefsQuery.js";
+import { queryKeywordsInNewTab } from "../ahrefs-content/ahrefsQuery.js";
 
 const ahrefsMatchingTermsUrl = "https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms";
 // const ahrefsMatchingTermsUrl = "https://";
