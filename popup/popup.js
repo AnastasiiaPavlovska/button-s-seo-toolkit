@@ -4,13 +4,13 @@ import { queryKeywordsInNewTab } from "../ahrefs-content/ahrefsQuery.js";
 const ahrefsMatchingTermsUrl = "https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms";
 // const ahrefsMatchingTermsUrl = "https://";
 
-document.addEventListener('DOMContentLoaded', function() {
-    const copyButton = document.getElementById('ahrefs_copy_kw');
-    copyButton.addEventListener('click', onAhrefsCopyKwClicked, false);
+let statusHistory = [];
 
-    const queryButton = document.getElementById('ahrefs_run_query');
-    queryButton.addEventListener('click', queryButtonHandler, false);
-}, false);
+function setStatus(message) {
+    statusHistory.push(message);
+    var status_bar = document.getElementById("status_bar");
+    status_bar.innerText = statusHistory.join("\n");
+}
 
 function queryButtonHandler() {
     const keywordInput = document.getElementById('query-keyword-input');
@@ -23,8 +23,7 @@ function queryButtonHandler() {
         keywordInput.style.color = "#FFFFFF";
         keywordInput.placeholder = " Provide keyword!";
 
-        var status_bar = document.getElementById("status_bar");
-        status_bar.innerText = "Provide keyword!";
+        setStatus("Provide keyword!");
         return;
     }
 
@@ -45,9 +44,9 @@ async function onAhrefsCopyKwClicked() {
     const response = await chrome.tabs.sendMessage(activeTab.id, { type: "copySelectedKeywords" });
 
     console.log("Received response: " + response.value);
-    var status_bar = document.getElementById("status_bar");
-    status_bar.innerText = "Copied " + response.length + " keywords";
+    setStatus("Copied " + response.length + " keywords");
     navigator.clipboard.writeText(response.value);
 
     addToClipboard(response.value);
 }
+
