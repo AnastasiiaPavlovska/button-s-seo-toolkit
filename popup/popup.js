@@ -50,3 +50,28 @@ async function onAhrefsCopyKwClicked() {
     addToClipboard(response.value);
 }
 
+// define a handler
+function doc_keyUp(e) {
+    // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
+    if (e.key === '1') {
+        // call your function to do the thing
+        console.log("Copy selected ahrefs keywords called");
+        setStatus("Copy selected ahrefs keywords called");
+        onAhrefsCopyKwClicked();
+    } else if (e.key === '2') {
+        console.log("Run keywords query in new tab");
+        setStatus("Run keywords query in new tab");
+        queryButtonHandler();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const copyButton = document.getElementById('ahrefs_copy_kw');
+    copyButton.addEventListener('click', onAhrefsCopyKwClicked, false);
+
+    const queryButton = document.getElementById('ahrefs_run_query');
+    queryButton.addEventListener('click', queryButtonHandler, false);
+}, false);
+
+// register the handler 
+document.addEventListener('keyup', doc_keyUp, false);
