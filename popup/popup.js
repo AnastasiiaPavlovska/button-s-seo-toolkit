@@ -13,19 +13,13 @@ function setStatus(message) {
 }
 
 function queryButtonHandler() {
-    const keywordInput = document.getElementById('query-keyword-input');
-    const keywords = keywordInput.value;
+    const keywords = pasteFromClipboard();
+    const inclusionString = document.getElementById('query-include-input').value;
     const exclusionString = document.getElementById('query-exclude-input').value;
 
-    if (keywords == "") {
-        console.log("Keyword has not been provided");
-        keywordInput.style.backgroundColor = "#000000";
-        keywordInput.style.color = "#FFFFFF";
-        keywordInput.placeholder = " Provide keyword!";
-
-        setStatus("Provide keyword!");
-        return;
-    }
+    setStatus("Got data:\nKeywords: " + keywords +
+        "\nInclude: " + inclusionString +
+        "\nExclude: " + exclusionString)
 
     queryKeywordsInNewTab(keywords, exclusionString);
 }
