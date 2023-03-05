@@ -54,6 +54,10 @@ function doc_keyUp(e) {
         console.log("Run keywords query in new tab");
         setStatus("Run keywords query in new tab");
         queryButtonHandler();
+    } else if (e.key === '3') {
+        console.log("3");
+        setStatus("3");
+        setKeywordHint();
     }
 }
 
@@ -63,7 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const queryButton = document.getElementById('ahrefs_run_query');
     queryButton.addEventListener('click', queryButtonHandler, false);
+
+    setKeywordHint();
 }, false);
+
+function setKeywordHint() {
+    const keywordHint = document.getElementById("keyword-hint");
+    const keywordInClipboard = pasteFromClipboard();
+    keywordHint.innerText = 'Keyword: "' + keywordInClipboard + '"';
+}
 
 // register the handler 
 document.addEventListener('keyup', doc_keyUp, false);

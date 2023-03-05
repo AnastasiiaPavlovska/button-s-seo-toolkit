@@ -4,10 +4,11 @@
     font-size: 35px;
     font-weight: bolder;
     padding-top: 15px;
+    color: #FFFFFF;
 }
 
 .container {
-    width: 300px;
+    width: 350px;
     /* height: 500px; */
     background-color: #b80000;
 }
@@ -73,6 +74,13 @@
     border: 0;
     margin: 2px 2px;
     padding: 2px;
+    padding-left: 5px;
+}
+
+.text {
+    font-size: 10pt;
+    padding: 2px 2px 2px 5px;
+    color: antiquewhite;
 }
 
 .status-bar {
