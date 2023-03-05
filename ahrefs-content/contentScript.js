@@ -82,6 +82,44 @@ function addCopyButton(buttonCSS) {
 
     copyButton.addEventListener('click', onCopyButtonClicked, false);
 }
+
+// Not yet working
+async function runObserverToAppendCopyButtonOnClassChange() {
+    // Get the element to observe
+    let toolbar = document.querySelector('.css-1h4yvvf-block.css-9uzb9x-blockMain.css-f201k2-blockWithGrouping.css-1ej5xwi-blockWithGap');
+
+    // Create a new MutationObserver instance
+    const observer = new MutationObserver((mutations) => {
+        // Loop through the mutations
+        mutations.forEach((mutation) => {
+            // Check if the class attribute has changed
+            if (mutation.attributeName === 'class') {
+                const currentClasses = toolbar.classList;
+                // Check if the desired class has been added
+                if (currentClasses.contains('css-1h4yvvf-block') &&
+                    currentClasses.contains('css-9uzb9x-blockMain') &&
+                    currentClasses.contains('css-f201k2-blockWithGrouping') &&
+                    !currentClasses.contains('css-1ej5xwi-blockWithGap')) {
+                    // Trigger the callback function
+                    addCopyButton(copyButtonCSS);
+                }
+            }
+        });
+    });
+
+    // Configure the observer to watch for changes to the attributes of the element
+    observer.observe(toolbar, { attributes: true });
+}
 // Add button 
 addCopyButton(copyButtonCSS);
+
+//////////////////////////////////////////////////////////////////
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Document loaded");
+    runObserverToAppendCopyButtonOnClassChange();
+});
+
+// runObserverToAppendCopyButtonOnClassChange();
+
+//////////////////////////////////////////////////////////////////
 chrome.runtime.onMessage.addListener(handleEvent);
