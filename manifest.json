@@ -32,8 +32,12 @@
         "service_worker": "background.js"
     },
     "content_scripts": [{
-        "js": ["ahrefs-content/contentScript.js"],
+        "js": ["ahrefs-content/keywordsContentScript.js"],
         "matches": ["https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms*"],
+        "type": "module"
+    }, {
+        "js": ["ahrefs-content/batchAnalysisContentScript.js"],
+        "matches": ["https://app.ahrefs.com/batch-analysis*"],
         "type": "module"
     }]
 }
