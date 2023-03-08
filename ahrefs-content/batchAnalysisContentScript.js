@@ -42,13 +42,13 @@ function crawlForSelectedItems() {
             .href // (href js object)
             .textContent; // text
 
-        let traffic = Number(row.getElementsByClassName("text-xs-right b-r-1px")[1].textContent.replace(",", ""));
+        let traffic = Number(row.getElementsByClassName("text-xs-right b-r-1px")[1].textContent.replaceAll(",", ""));
 
-        let dr = Number(row.getElementsByClassName("text-xs-left")[2].textContent.replace(",", ""));
+        let dr = Number(row.getElementsByClassName("text-xs-left")[2].textContent.replaceAll(",", ""));
 
-        let rdTotal = Number(row.getElementsByClassName("text-xs-right")[4].textContent.replace(",", ""));
+        let rdTotal = Number(row.getElementsByClassName("text-xs-right")[4].textContent.replaceAll(",", ""));
 
-        let domains = Number(row.getElementsByClassName("text-xs-right  b-r-1px ")[5].textContent.replace(",", ""));
+        let domains = Number(row.getElementsByClassName("text-xs-right  b-r-1px ")[5].textContent.replaceAll(",", ""));
 
         rowResult.push(url, traffic, dr, rdTotal, domains);
         result.push(rowResult.join("\t"))
