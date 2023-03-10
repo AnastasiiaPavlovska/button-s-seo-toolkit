@@ -38,13 +38,20 @@ body {
     flex-direction: row;
 }
 
+.row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 3px;
+}
+
 .item-vert {
-    /* outline: #000000;
-    outline-style: solid;
-    outline-width: 1px; */
-    /* margin-top: 5px; */
-    margin-right: 5px;
-    /* padding: 3px; */
+    border-radius: 15px;
+    background-color: #9e0000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+    align-items: center;
 }
 
 .item-img {
@@ -66,7 +73,7 @@ body {
     border-radius: 12px;
     border: 0;
     margin: 2px 2px;
-    padding: 3px;
+    padding: 3px 7px 3px 7px;
 }
 
 .item-button:hover {
@@ -77,6 +84,12 @@ body {
 .item-button:active {
     color: #ffffff;
     background-color: #74000c;
+}
+
+#select-input-table-button {
+    width: fit-content;
+    background-color: #ff8800;
+    color: #000000;
 }
 
 .input-field {
@@ -92,6 +105,11 @@ body {
     padding-left: 5px;
 }
 
+.input-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
 .text {
     padding: 2px 2px 2px 5px;
     color: antiquewhite;
@@ -104,8 +122,8 @@ body {
 }
 
 ::selection {
-    color: rgb(0, 0, 0);
-    background: rgb(255, 136, 0);
+    color: #000000;
+    background: #ff8800;
 }
 
 
@@ -130,15 +148,9 @@ body {
     transition: 0.3s;
 }
 
-
-/* Change background color of buttons on hover */
-
 .tab button:hover {
     background-color: #ddd;
 }
-
-
-/* Create an active/current tablink class */
 
 .tab button.active {
     background-color: #ccc;
