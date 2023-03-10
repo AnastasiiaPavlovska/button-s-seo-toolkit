@@ -28,7 +28,7 @@ async function onAhrefsCopyKwClicked() {
     console.log("On onAhrefsCopyKwClicked called");
     const activeTab = await getActiveTabURL();
 
-    if (!activeTab.url || !activeTab.url.includes(ahrefsMatchingTermsUrl)) {
+    if (activeTab.url == null || !activeTab.url.includes(ahrefsMatchingTermsUrl)) {
         setStatus("This button doesn't work on this page.\nTry: " + ahrefsMatchingTermsUrl);
         console.log("Url doesn't match the pattern: " + activeTab.url);
         return;
@@ -79,7 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .addEventListener('click', showLinkBuildingTab);
 
     document.getElementById('goto-batch-analysis-page')
-        .addEventListener('click', gotoBatchAnalysisPage)
+        .addEventListener('click', gotoBatchAnalysisPage);
+
+    document.getElementById('copy-batch-analysis-data')
+        .addEventListener('click', copyBatchAnalysisData);
+
+
 
     // Set first tab active
     document.getElementById("keywords-content").style.display = "block";
@@ -132,6 +137,27 @@ function showLinkBuildingTab(event) {
     showTab(event, "linkbuilding-content")
 }
 
+const batchAnalysisBaseUrl = "https://app.ahrefs.com/batch-analysis";
+
 function gotoBatchAnalysisPage(event) {
-    chrome.tabs.create({ url: "https://app.ahrefs.com/batch-analysis" });
+    chrome.tabs.create({ url: batchAnalysisBaseUrl });
+}
+
+async function copyBatchAnalysisData(event) {
+    alert("Вітаю, ви мертві!");
+
+    console.log("On onAhrefsCopyKwClicked called");
+    const activeTab = await getActiveTabURL();
+
+    if (activeTab.url == null || !activeTab.url.includes(batchAnalysisBaseUrl)) {
+        setStatus("This button doesn't work on this page.\nTry: " + batchAnalysisBaseUrl);
+        console.log("Url doesn't match the pattern: " + activeTab.url);
+        return;
+    }
+
+    const response = await chrome.tabs.sendMessage(activeTab.id, { type: "copyBatchAnalysisData" });
+
+    console.log("Received response: " + response.value);
+    setStatus("Copied " + response.length + " rows");
+    copyToClipboard(response.value);
 }

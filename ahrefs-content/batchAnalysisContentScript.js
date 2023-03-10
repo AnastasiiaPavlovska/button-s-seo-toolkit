@@ -74,5 +74,18 @@ function addCopyButton(buttonCSS) {
     copyButton.addEventListener('click', onCopyButtonClicked, false);
 }
 
+function handleEvent(request, sender, sendResponse) {
+    if (request.type === "copyBatchAnalysisData") {
+        const result = crawlForSelectedItems();
+
+        // Answer back to popup.js
+        sendResponse({
+            value: result.join("\n"),
+            length: result.length
+        });
+    }
+}
+
 // Add button 
 addCopyButton(copyButtonCSS);
+chrome.runtime.onMessage.addListener(handleEvent);
