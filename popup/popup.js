@@ -61,12 +61,29 @@ function doc_keyUp(e) {
     }
 }
 
+// Entry point
 document.addEventListener('DOMContentLoaded', function() {
     const copyButton = document.getElementById('ahrefs_copy_kw');
     copyButton.addEventListener('click', onAhrefsCopyKwClicked, false);
 
     const queryButton = document.getElementById('ahrefs_run_query');
     queryButton.addEventListener('click', queryButtonHandler, false);
+
+    document.getElementById('keywords-button')
+        .addEventListener('click', showKeywordTab);
+
+    document.getElementById('batch-analysis-button')
+        .addEventListener('click', showBatchAnalysisTab);
+
+    document.getElementById('linkbuilding-button')
+        .addEventListener('click', showLinkBuildingTab);
+
+    document.getElementById('goto-batch-analysis-page')
+        .addEventListener('click', gotoBatchAnalysisPage)
+
+    // Set first tab active
+    document.getElementById("keywords-content").style.display = "block";
+    document.getElementById('keywords-button').className += " active";
 
     setKeywordHint();
 }, false);
@@ -79,3 +96,42 @@ function setKeywordHint() {
 
 // register the handler 
 document.addEventListener('keyup', doc_keyUp, false);
+
+function showTab(evt, tabId) {
+    // Declare all variables
+    var i, tabcontent, tabButtons;
+
+    // alert(tabId);
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tabbutton" and remove the class "active"
+    tabButtons = document.getElementsByClassName("tabbutton");
+    for (i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabId).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function showKeywordTab(event) {
+    showTab(event, "keywords-content")
+}
+
+function showBatchAnalysisTab(event) {
+    showTab(event, "batch-analysis-content")
+}
+
+function showLinkBuildingTab(event) {
+    showTab(event, "linkbuilding-content")
+}
+
+function gotoBatchAnalysisPage(event) {
+    chrome.tabs.create({ url: "https://app.ahrefs.com/batch-analysis" });
+}

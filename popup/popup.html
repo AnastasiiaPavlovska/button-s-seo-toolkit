@@ -14,7 +14,16 @@
     <div class="container">
         <div class="title">Button's SEO Toolbox</div>
 
-        <div class="toolbox" id="toolbox">
+        <!-- Tab menu -->
+        <div class="tab">
+            <button class="tabbutton" id="keywords-button">Keywords</button>
+            <button class="tabbutton" id="batch-analysis-button">Batch Analysis</button>
+            <button class="tabbutton" id="linkbuilding-button">Link Building</button>
+        </div>
+
+        <!-- Tab content -->
+        <!-- Ahrefs keywords-->
+        <div class="tabcontent" id="keywords-content">
             <div class="item">
                 <img class="item-img" src="../ahrefs-content/ahrefs_logo.jpg" alt="ahrefs logo">
                 <button class="item-button" id="ahrefs_copy_kw" title="Press '1' to execute">Copy selected aHrefs keywords</button>
@@ -29,6 +38,22 @@
                 </div>
             </div>
         </div>
+
+        <!-- Batch Analysis tab -->
+        <div class="tabcontent" id="batch-analysis-content">
+            <div class="item">
+                <img class="item-img" src="../ahrefs-content/ahrefs_logo.jpg" alt="ahrefs logo">
+                <button class="item-button" id="goto-batch-analysis-page" title="Copy button is already implemented there">
+                    Go to batch analysis page
+                </button>
+            </div>
+        </div>
+
+        <div id="linkbuilding-content" class="tabcontent">
+            <h3>Tokyo</h3>
+            <p>Tokyo is the capital of Japan.</p>
+        </div>
+        <!--Status Bar  -->
         <div class="status-bar" id="status_bar">This is status bar :D</div>
     </div>
 </body>
