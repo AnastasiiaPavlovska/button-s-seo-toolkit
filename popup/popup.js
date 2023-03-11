@@ -1,5 +1,6 @@
 import { getActiveTabURL, copyToClipboard, pasteFromClipboard } from "../utils.js";
 import { queryKeywordsInNewTab } from "../ahrefs-content/ahrefsQuery.js";
+import { startLbProcessing } from "../kotletaProcessor.js";
 
 const ahrefsMatchingTermsUrl = "https://app.ahrefs.com/keywords-explorer/google/us/ideas/matchingTerms";
 // const ahrefsMatchingTermsUrl = "https://";
@@ -84,6 +85,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('copy-batch-analysis-data')
         .addEventListener('click', copyBatchAnalysisData);
 
+    // document.getElementById('select-input-table-button')
+    //     .addEventListener('click', selectInputTablePath);
+
+    document.getElementById('start-lb-processing')
+        .addEventListener('click', startLbProcessing);
 
 
     // Set first tab active
